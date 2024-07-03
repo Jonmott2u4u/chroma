@@ -1,0 +1,6 @@
+Bootstrap: docker
+From: jonmott21/chromatism:nvidia.base.pip
+
+%post
+    apt-get -y update
+    apt-get -y install vim npm nodejs

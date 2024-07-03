@@ -11,6 +11,9 @@ Information about the historical development of Chroma can be found at the [bitb
 This repository contains a modified version of Chroma that includes support for wavelength shifters, scintillators, and dichroic filters. 
 This version of Chroma has also been been updated for Python3, Geant4.10.05.p01, and Root 6.18.04, among other things.
 
+Recent Github Link:
+`git@github.com:Pocar-Lab/nEXO-chroma.git`
+
 ## Container overview
 
 The `installation` directory contains a collection of `Dockerfile`s to build an ubuntu-derived image containing Chroma. This may be a useful reference for other systems. Note that properly linking to boost_python and boost_numpy is nontrivial on systems with both python2 and python3.
@@ -61,6 +64,8 @@ Running this image is pretty setraightforward. Your home directory will be avail
 
 `singularity run --nv chroma3.simg`
 
+If software already installed on computer, use this instead: `singularity run --nv --no-home --writable-tmpfs chroma3.simg`
+
 Visualization with OpenGL and simulation with CUDA will work in this container.
 
 ### Test drive
@@ -70,3 +75,9 @@ After deploying a container to a GPU-enabled host locally or via SSH with XForwa
 `chroma-cam @chroma.models.lionsolid`
 
 which should display a GPU-rendered visualization, ensuring everything is working properly.
+
+Run this to access analysis scripts and run managers. (Does not currently work)
+`singularity run --nv --no-home --writable-tmpfs --bind ~/luc-chroma-test/chroma_6-3-2024:/home/chroma/chroma_fresh_start chroma3.simg`
+
+Until my own version is ready, use this from within the home/jon/luc-chroma-test folder (runs, but results disagree with Sili's manual)
+`singularity run --nv --no-home --writable-tmpfs --bind ./chroma_6-3-2024:/home/chroma/chroma_fresh_start ./chroma_newcuda.sif`

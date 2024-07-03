@@ -1,0 +1,19 @@
+FROM jonmott21/chromatism:nvidia.base.devel
+MAINTAINER Jonathon Mott <jonmott46@gmail.com>
+
+WORKDIR /opt/
+ADD https://api.github.com/repos/Jonmott2u4u/chroma/git/refs/heads/master /opt/chroma_version.json
+RUN git clone https://github.com/Jonmott2u4u/chroma
+WORKDIR /opt/chroma/
+RUN sed -i 's/VIRTUAL_ENV/CONDA_PREFIX/g' setup.py
+#export PATH=/usr/local/cuda/bin:$PATH && \
+#export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH && \
+#ls /usr/local/cuda/
+
+#RUN python setup.py develop
+RUN pip install -e .
+
+#For jupyter
+EXPOSE 8888
+
+CMD ["/bin/bash","-l"]
