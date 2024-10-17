@@ -79,5 +79,5 @@ which should display a GPU-rendered visualization, ensuring everything is workin
 Run this to access analysis scripts and run managers. (Does not currently work)
 `singularity run --nv --no-home --writable-tmpfs --bind ~/luc-chroma-test/chroma_6-3-2024:/home/chroma/chroma_fresh_start chroma3.simg`
 
-Until my own version is ready, use this from within the home/jon/luc-chroma-test folder (runs, but results disagree with Sili's manual)
-`singularity run --nv --no-home --writable-tmpfs --bind ./chroma_6-3-2024:/home/chroma/chroma_fresh_start ./chroma_newcuda.sif`
+Use this to run my version
+`singularity run --nv --no-home --writable-tmpfs --bind ./chroma_6-3-2024:/home/chroma/chroma_fresh_start ./chroma3_pip.simg`
